@@ -20,6 +20,7 @@ public class TextBoxPage {
         this.emailInput=driver.findElement(By.cssSelector(Path.TEXT_BOX_EMAIL));
         this.currentAddressTextArea=driver.findElement(By.cssSelector(Path.TEXT_BOX_CURRENT_ADDRESS));
         this.permanentAddressTextArea=driver.findElement(By.cssSelector(Path.TEXT_BOX_PERMANENT_ADDRESS));
+        this.submitButton=driver.findElement(By.cssSelector(Path.TEXT_BOX_SUBMIT_BUTTON));
         this.output=driver.findElement(By.cssSelector(Path.TEXT_BOX_OUTPUT));
     }
     public void fillFullNameInput(String value){
@@ -43,7 +44,7 @@ public class TextBoxPage {
        StringBuilder stringBuilder=new StringBuilder();
        for (WebElement output:outputs){
            stringBuilder.append(output.getText());
-           stringBuilder.append("/n");
+           stringBuilder.append("\n");
 
         }
        return stringBuilder.toString();

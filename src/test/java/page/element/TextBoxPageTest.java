@@ -32,6 +32,7 @@ public class TextBoxPageTest {
        String expected="Mike";
 
        textBoxPage.fillFullNameInput(input);
+       textBoxPage.fillEmailInput("email@email.com");
        textBoxPage.clickSubmitButton();
        String actual= textBoxPage.getOutputText();
        System.out.println(actual);
