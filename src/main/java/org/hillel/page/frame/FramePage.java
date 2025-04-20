@@ -30,7 +30,7 @@ public class FramePage extends BasePage {
         return new SamplePage();
     }
 
-    class SamplePage {
+    public class SamplePage {
         @FindBy(css = "#sampleHeading")
         private WebElement header;
 

@@ -2,6 +2,7 @@ package page.frame;
 
 import org.hillel.page.BasePage;
 import org.hillel.page.frame.FramePage;
+import org.openqa.selenium.WindowType;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -31,9 +32,36 @@ public class FramePageTest extends BasePageTest {
     public void sampleHeaderTextTest(){
         String expected="This is a sample page";
 
-        String actual=framePage.getFirstFrameHeaderText();
+      //  String actual=framePage.getFirstFrameHeaderText();
+        FramePage.SamplePage firstFrame=framePage.getFirstFrame();
+        String actual=firstFrame.getHeaderText();
         System.out.println(actual);
 
         Assert.assertEquals(actual, expected);
     }
+    @Test
+    public void newTabTest() throws InterruptedException {
+        driver.switchTo().newWindow(WindowType.TAB);
+        driver.get("https://privatbank.ua/");
+
+        driver.switchTo().newWindow(WindowType.TAB);
+        driver.get("https://monobank.ua/en/");
+
+        driver.switchTo().newWindow(WindowType.TAB);
+        driver.get("https://epicentrk.ua/");
+
+        Thread.sleep(3000);
+
+        for (String windowHandle : driver.getWindowHandles()) {
+            System.out.println(windowHandle);
+            String title=driver.switchTo().window(windowHandle).getTitle();
+            Thread.sleep(1000);
+            if (title.toLowerCase().contains("monobank")) {
+                break;
+            }
+
+        }
+        Thread.sleep(2000);
+    }
+
 }
