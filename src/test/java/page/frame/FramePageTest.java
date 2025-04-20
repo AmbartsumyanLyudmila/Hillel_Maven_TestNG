@@ -34,6 +34,6 @@ public class FramePageTest extends BasePageTest {
         String actual=framePage.getFirstFrameHeaderText();
         System.out.println(actual);
 
-        Assert. assertEquals(actual, expected);
+        Assert.assertEquals(actual, expected);
     }
 }

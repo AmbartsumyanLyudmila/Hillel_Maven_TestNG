@@ -22,7 +22,7 @@ public class FramePage extends BasePage {
         SamplePage firstFrame = new SamplePage();
         String headerText = firstFrame.getHeaderText();
         driver.switchTo().parentFrame();
-        return firstFrame.getHeaderText();
+        return headerText;
     }
 
     public SamplePage getFirstFrame() {
